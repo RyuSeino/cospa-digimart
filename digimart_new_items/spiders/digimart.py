@@ -1,5 +1,4 @@
 # -*- coding: utf-8 -*-
-import scrapy
 from scrapy.spiders import CrawlSpider, Rule
 from scrapy.linkextractors import LinkExtractor
 
@@ -14,7 +13,7 @@ class DigimartSpider(CrawlSpider):
         'https://www.digimart.net/search?dispMode=ALL&nosalep=false&category12Id=101&category3Id=&productTypes=NEW_SALE&productTypes=SALE&nosoldoutp=on']
 
     rules = [
-        Rule(LinkExtractor(r'/search\?.+NEW_SALE'), callback='parse_item', follow=False)
+        Rule(LinkExtractor(r'/search\?.*NEW_SALE'), callback='parse_item', follow=True)
     ]
 
 
